@@ -1,0 +1,162 @@
+.sidebar {
+    height: 100vh;
+    width: fit-content;
+    background-color: #292D3E;
+    display: flex;
+    flex-direction: row;
+
+    .sidebar__tabs {
+        width: 60px;
+        height: 100%;
+        border-right: 1px solid rgb(54, 58, 77);
+
+        .tab__list {
+            height: 300px;
+            padding: 10px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+
+            li {
+                border-radius: 5px;
+                width: 50px;
+                height: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                transition: all ease .4s;
+
+                &:hover {
+                    background-color: rgba(0, 0, 0, 0.5);
+                }
+            }
+        }
+    }
+
+    .sidebar__menus {
+        width: 250px;
+
+        .sidebar-panel {
+    
+            .panel-menu {
+                border-bottom: 1px solid #363A4D;
+                
+                .menu-header {
+                    color: white;
+                    font-size: 16px;
+                    padding: 0 5px;
+                    width: 100%;
+                    cursor: pointer;
+                    transition: all ease .3s;
+                    display: flex;
+                    align-items: center;
+                    margin: 0;
+    
+                    &:hover {
+                        background-color: rgba(0, 0, 0, 0.2);
+                    }
+    
+                    svg {
+                        margin: 5px;
+                        transform: rotate(-90deg);
+                        transition: all ease .2s;
+                    }
+                }
+    
+                .menu-body {
+                    height: 0px;
+                    opacity: 0;
+                    visibility: hidden;
+
+                    .menu__list {
+                        padding-left: 20px;
+
+                        .menu__list-item {
+
+                            .submenu {
+
+                                .submenu-header {
+                                    color: white;
+                                    font-size: 16px;
+                                    padding: 0 5px;
+                                    width: 100%;
+                                    cursor: pointer;
+                                    transition: all ease .3s;
+                                    display: flex;
+                                    align-items: center;
+                                    margin: 0;
+                    
+                                    &:hover {
+                                        background-color: rgba(0, 0, 0, 0.2);
+                                    }
+                    
+                                    svg {
+                                        margin: 5px;
+                                        transform: rotate(-90deg);
+                                        transition: all ease .2s;
+                                    }
+                                }
+
+                                .submenu-list {
+                                    padding-left: 10px;
+                                    visibility: hidden;
+                                    opacity: 0;
+                                    height: 0;
+
+                                    .submenu-list__item {
+                                        color: white;
+                                        font-size: 16px;
+                                        font-weight: lighter;
+                                        padding: 0 10px;
+                                        cursor: pointer;
+
+                                        svg { transform: rotate(-90deg); }
+
+                                        &:hover {
+                                            background-color: rgba(0, 0, 0, 0.2);
+                                        }
+                                    }
+                                }
+
+                                &.active {
+                                    .submenu-header svg { transform: rotate(0deg); }
+                                    .submenu-list {
+                                        visibility: visible;
+                                        opacity: 1;
+                                        height: auto;
+                                    }
+                                }
+                            }
+
+                            .file {
+                                font-size: 16px;
+                                font-weight: lighter;
+                                color: white;
+                                margin: 0 0 0 3px;
+                                padding: 2px 0;
+                                cursor: pointer;
+                                display: flex;
+
+                                svg { margin: 0 5px; }
+                                &:hover {
+                                    background-color: rgba(0, 0, 0, 0.2);
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &.active {
+                    .menu-header svg { transform: rotate(0deg); }
+                    .menu-body {
+                        opacity: 1;
+                        visibility: visible;
+                        height: auto;
+                    }
+                }
+            }
+        }
+    }
+}
