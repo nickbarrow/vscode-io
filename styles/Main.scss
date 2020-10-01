@@ -1,0 +1,13 @@
+.main-window {
+  display: flex;
+  flex-direction: row;
+  height: 94vh;
+
+  .main-window__right {
+    height: 100%;
+    width: 80%;
+    background-color: #292D3E;
+    display: flex;
+    flex-direction: column;
+  }
+}

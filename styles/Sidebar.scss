@@ -1,7 +1,11 @@
+// Fuck them dots
+li { list-style: none; }
+
 .sidebar {
-    height: 100vh;
-    width: fit-content;
+    height: 100%;
+    width: 20%;
     background-color: #292D3E;
+    border-right: 1px solid #363A4D;
     display: flex;
     flex-direction: row;
 
@@ -29,7 +33,7 @@
                 transition: all ease .4s;
 
                 &:hover {
-                    background-color: rgba(0, 0, 0, 0.5);
+                    filter: drop-shadow(0px 0px 8px rgba(94, 149, 189, 0.8));
                 }
             }
         }
@@ -69,13 +73,14 @@
                     height: 0px;
                     opacity: 0;
                     visibility: hidden;
-
+                    
                     .menu__list {
-                        padding-left: 20px;
+                        padding-left: 15px;
 
                         .menu__list-item {
 
                             .submenu {
+                                margin-bottom: 5px;
 
                                 .submenu-header {
                                     color: white;
@@ -87,11 +92,11 @@
                                     display: flex;
                                     align-items: center;
                                     margin: 0;
-                    
+                                    
                                     &:hover {
                                         background-color: rgba(0, 0, 0, 0.2);
                                     }
-                    
+                                    
                                     svg {
                                         margin: 5px;
                                         transform: rotate(-90deg);
@@ -100,7 +105,7 @@
                                 }
 
                                 .submenu-list {
-                                    padding-left: 10px;
+                                    padding-left: 15px;
                                     visibility: hidden;
                                     opacity: 0;
                                     height: 0;
@@ -120,7 +125,7 @@
                                     }
                                 }
 
-                                &.active {
+                                &.expanded {
                                     .submenu-header svg { transform: rotate(0deg); }
                                     .submenu-list {
                                         visibility: visible;
@@ -139,7 +144,10 @@
                                 cursor: pointer;
                                 display: flex;
 
-                                svg { margin: 0 5px; }
+                                svg {
+                                    margin: 0 5px;
+                                    transform: rotate(0deg);
+                                }
                                 &:hover {
                                     background-color: rgba(0, 0, 0, 0.2);
                                 }
@@ -148,7 +156,7 @@
                     }
                 }
 
-                &.active {
+                &.expanded {
                     .menu-header svg { transform: rotate(0deg); }
                     .menu-body {
                         opacity: 1;

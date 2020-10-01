@@ -9,8 +9,6 @@ const Header = (props) => {
     const [openMenu, setOpenMenu] = useState(null);
     const closeMenus = () => setOpenMenu(null);
 
-    console.log(openMenu);
-
     return (
         <div className="toolbar">
             <div className="toolbar__left">
