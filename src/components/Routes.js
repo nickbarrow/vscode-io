@@ -1,25 +1,23 @@
 import React, { Component } from 'react';
-import Login from './Login';
-import Signup from './Signup';
-import Camp from './Camp';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Redirect,
-  useHistory
+  Redirect
 } from 'react-router-dom';
+import { fireAuth } from '../firebase';
+
 import Header from './display/Header';
 import Sidebar from './display/Sidebar';
 import WindowTabs from './display/WindowTabs';
-import { fireAuth } from '../firebase';
+
+
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import Camp from './pages/Camp';
+import Inventory from './pages/Inventory';
+
 import "../../styles/Main.scss";
-
-
-const files = [
-  "About.js",
-  "Camp.js"
-]
 
 // PrivateRoute redirects to '/login' if user not authenticated.
 function PrivateRoute({ component: Component, auth, ...rest }) {
@@ -80,9 +78,9 @@ export default class Routes extends Component {
         <div className="main-window">
           <Sidebar
             user={this.state.user}
-            files={files}
             openWindows={this.openWindows}
             setActiveWindow={this.setActiveWindow} />
+
           <div className="main-window__right">
             <WindowTabs
               openWindows={this.state.openWindows}
@@ -92,6 +90,8 @@ export default class Routes extends Component {
             <div className="main-window__pane">
               <Switch>
                 <PrivateRoute path="/Camp.js" auth={this.state.user} component={Camp} exact />
+                <PrivateRoute path="/Inventory.html" auth={this.state.user} component={Inventory} exact />
+
                 <Route
                   path="/"
                   render={() => {

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { fireAuth } from "../firebase";
+import { fireAuth } from "../../firebase";
 
 export default class Camp extends Component {
   constructor(props) {

@@ -1,23 +1,42 @@
 import React from 'react';
+import SB_MENU from "./sidebar-components/SB_MENU";
 
-import { VscJson as JSONIcon } from 'react-icons/vsc';
-import { DiGulp as GulpIcon } from 'react-icons/di';
-import { SiJavascript as JSIcon } from 'react-icons/si';
-import { HiOutlineInformationCircle as ReadmeIcon } from 'react-icons/hi';
-import { IoIosArrowDown as CaretIcon } from 'react-icons/io';
+const FILES = {
+  "subdirectories": [
+    ['build', ['Craft.js', 'Consumables.js', 'Inventory.html']],
+    ['node-modules', ['@types', '@other', '@modules']],
+    ['src', ['About.js', 'Camp.js']]  
+  ],
+  "files": [
+    'gulpfile.js',
+    'package.json',
+    'package_lock.json',
+    'README.md'  
+  ]
+};
 
-import SidebarFile from '../sidebar-panels/SidebarFile';
-
-export default function FilesPanel (props) {
-
+export default function Documents(props) {
   return (
     <div className="sidebar-panel">
-      {/* Panel menus */}
-      <div className={`panel-menu ${ props.collapsedMenus.includes('files') ? '' : 'expanded' }`}>
+
+      <SB_MENU 
+        title={"FILES"}
+        subdirectories={FILES.subdirectories}
+        files={FILES.files}
+        modMenu={props.modMenu}
+        collapsedMenus={props.collapsedMenus}
+        openWindows={props.openWindows}
+        />
+
+      {/* <div
+        className={`panel-menu ${
+          props.collapsedMenus.includes('files') ? '' : 'expanded'
+        }`}>
         <h1
           className="menu-header"
           onClick={() => {
-            this.modMenu('files'); }}>
+            this.modMenu('files');
+          }}>
           <CaretIcon />
           Files
         </h1>
@@ -35,10 +54,15 @@ export default function FilesPanel (props) {
             <li className="menu__list-item">
               <div
                 className={`submenu ${
-                  props.collapsedMenus.includes('node-modules') ? '' : 'expanded' }`}>
+                  props.collapsedMenus.includes('node-modules')
+                    ? ''
+                    : 'expanded'
+                }`}>
                 <h1
                   className="submenu-header"
-                  onClick={() => { this.modMenu('node-modules') }}>
+                  onClick={() => {
+                    this.modMenu('node-modules');
+                  }}>
                   <CaretIcon />
                   node_modules
                 </h1>
@@ -63,18 +87,27 @@ export default function FilesPanel (props) {
             <li className="menu__list-item">
               <div
                 className={`submenu ${
-                  props.collapsedMenus.includes('src') ? '' : 'expanded' }`}>
+                  props.collapsedMenus.includes('src') ? '' : 'expanded'
+                }`}>
                 <h1
                   className="submenu-header"
-                  onClick={() => { props.modMenu('src') }}>
+                  onClick={() => {
+                    props.modMenu('src');
+                  }}>
                   <CaretIcon />
                   src
                 </h1>
 
                 <ul className="submenu-list">
-                  { props.files.map(file => {
-                    return <SidebarFile name={file} link={file} openWindows={props.openWindows} />
-                  }) }
+                  {props.files.map((file) => {
+                    return (
+                      <SidebarFile
+                        name={file}
+                        link={file}
+                        openWindows={props.openWindows}
+                      />
+                    );
+                  })}
                 </ul>
               </div>
             </li>
@@ -115,7 +148,7 @@ export default function FilesPanel (props) {
           Items
         </h1>
         <div className="menu-body"></div>
-      </div>
+      </div> */}
     </div>
-  )
+  );
 }
